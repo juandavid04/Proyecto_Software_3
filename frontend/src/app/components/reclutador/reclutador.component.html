@@ -1,0 +1,25 @@
+
+<mat-toolbar class="bar">
+    <button class="buttonAdmin" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h2 style="margin: 0;">Administración</h2>
+</mat-toolbar>
+
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <div>
+            <h2 [routerLink]="'vacantes'">Vacantes</h2>
+        </div>
+        <hr>
+        <div>
+            <h2 [routerLink]="'solicitudes'">Solicitudes</h2>
+        </div>
+        <hr>
+    </mat-drawer>
+
+    <div style="margin: 1rem;"> 
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

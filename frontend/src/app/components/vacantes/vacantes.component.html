@@ -1,0 +1,54 @@
+<mat-card class="cardVacantes">
+
+    <h1 style="color: gray;">Vacantes</h1>
+
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <hr class="hrAdd">
+        <button (click)="openDialog('add','vacantes')" mat-mini-fab color="primary">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+    <mat-table [dataSource]="vacantes" class="tableVacantes">
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef> Titulo </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechaL">
+            <th mat-header-cell *matHeaderCellDef> Fecha Limite </th>
+            <td mat-cell *matCellDef="let element"> {{element.Fecha_Limite}} </td>
+        </ng-container>
+        <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef> Categoria </th>
+            <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+        </ng-container>
+        <ng-container matColumnDef="lugar">
+            <th mat-header-cell *matHeaderCellDef> Lugar </th>
+            <td mat-cell *matCellDef="let element"> {{element.ciudads}} </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.Estado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="creada">
+            <th mat-header-cell *matHeaderCellDef> Creada </th>
+            <td mat-cell *matCellDef="let element"> {{element.Fecha_Creacion}} </td>
+        </ng-container>
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab color="primary" (click)="openDialog('edit','vacantes',element)"> 
+                    <mat-icon>edit</mat-icon> 
+                </button> 
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab color="warn" (click)="openDialog('delete','vacantes',element)"><mat-icon>delete</mat-icon></button> 
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+</mat-card>

@@ -1,0 +1,28 @@
+.bar{
+  margin-top: 1rem;
+  background-color: rgb(187, 228, 182);
+}
+
+.container {
+    width: auto;
+    height: 40rem;
+    background-color: white;
+  }
+  
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav {
+  padding: 2rem;
+  background-color: rgb(187, 228, 182);
+}
+
+.buttonAdmin{
+  background-color: transparent; 
+  border: none;
+}
+

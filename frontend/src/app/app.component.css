@@ -1,0 +1,64 @@
+a {
+  text-decoration: none;
+}
+
+.title {
+  width: 30%;
+  margin: auto;
+  padding-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title img {
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+  font-family: "Caveat Brush", cursive;
+  color: green;
+  z-index: 1;
+  position: absolute;
+  font-size: 3.2rem;
+  display: block !important;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition: -moz-transform 0.5s ease-out;
+  -o-transition: -o-transform 0.5s ease-out;
+  -ms-transition: -ms-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+}
+
+.options {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid #96d0fc;
+  border-radius: 6px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.op1, .op2 {
+  font-family: "Caveat Brush", cursive;
+  color: green;
+  font-size: 1.6rem;
+  display: block !important;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition: -moz-transform 0.5s ease-out;
+  -o-transition: -o-transform 0.5s ease-out;
+  -ms-transition: -ms-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+}
+
+.op1:hover, .op2:hover, .logo:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}

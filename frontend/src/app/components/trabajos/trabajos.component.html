@@ -1,0 +1,23 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap" rel="stylesheet">
+<mat-card *ngFor="let trabajo of vacantes" class="card">
+  <mat-card-title>{{ trabajo.Nombre }}</mat-card-title>
+  <mat-card-content>{{ trabajo.Descripcion }}</mat-card-content>
+  <mat-card-subtitle>Requerimientos</mat-card-subtitle>
+  <mat-card-content>{{ trabajo.Requerimientos }}</mat-card-content>
+  <mat-card-footer class="datos">
+    <mat-card-content
+      ><p>Fecha Limite: {{ trabajo.Fecha_Limite }}</p></mat-card-content
+    >
+    <mat-card-content
+      ><p>Categoria: {{ trabajo.categoria }}</p></mat-card-content
+    >
+    <mat-card-content
+      ><p>Lugar: {{ trabajo.ciudads }}</p></mat-card-content
+    >
+    <mat-card-actions>
+      <button mat-raised-button (click)="openDialog(trabajo.id)">APLICAR</button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

@@ -1,0 +1,100 @@
+<h1 *ngIf="data.tipo == 'add' && data.desde == 'vacantes'" mat-dialog-title>Añadir</h1>
+<h1 *ngIf="data.tipo == 'edit' && data.desde == 'vacantes'" mat-dialog-title>Editar</h1>
+<h1 *ngIf="data.tipo == 'delete' && data.desde == 'vacantes'" mat-dialog-title>Eliminar</h1>
+<h1 *ngIf="data.desde == 'trabajos'" mat-dialog-title>Aplicar</h1>
+
+<div *ngIf="data.tipo != 'delete'" mat-dialog-content>
+  <form novalidate [formGroup]="form">
+
+    <mat-form-field *ngIf="form.get('titulo')" appearance="outline">
+        <mat-label>Título</mat-label>
+        <input formControlName="titulo" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('descripcion')" appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input formControlName="descripcion" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('requerimientos')" appearance="outline">
+        <mat-label>Requerimientos</mat-label>
+        <input formControlName="requerimientos" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('fechaL')" appearance="outline">
+        <mat-label>Fecha Limite</mat-label>
+        <input formControlName="fechaL" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('categoria')" appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="categoria">
+            <mat-option *ngFor="let categoria of data.categorias" [value]="categoria.id">{{categoria.Nombre}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('ciudad')" appearance="outline">
+        <mat-label>Ciudad</mat-label>
+        <mat-select formControlName="ciudad">
+            <mat-option *ngFor="let ciudad of data.ciudades" [value]="ciudad.id">{{ciudad.Nombre}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox *ngIf="form.get('estado')" formControlName="estado">Activar</mat-checkbox>
+
+
+    <!-- Dialog Trabajos -->
+
+    <mat-form-field *ngIf="form.get('Nombre')" appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input formControlName="Nombre" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('Apellido')" appearance="outline">
+      <mat-label>Apellido</mat-label>
+      <input formControlName="Apellido" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('Telefono')" appearance="outline">
+      <mat-label>Telefono</mat-label>
+      <input formControlName="Telefono" matInput>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="form.get('Correo')" appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input formControlName="Correo" matInput>
+    </mat-form-field>
+
+
+    <div class="input" *ngIf="form.get('HojaVida')">
+      <input formControlName="HojaVida" type="file" (change)="Capturarcv($event)">
+    </div>
+
+
+  </form>
+
+</div>
+
+
+<div *ngIf="data.tipo == 'delete'" mat-dialog-content>
+    <h2>¿Estas seguro?</h2>
+</div>
+
+<div *ngIf="data.tipo != 'delete' && !form.get('Cerrar')" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="close()" [disabled]="form.invalid" cdkFocusInitial>Ok</button>
+</div>
+
+<div mat-dialog-actions *ngIf="form.get('Cerrar')">
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="cerrar()" [disabled]="form.invalid" cdkFocusInitial>Aceptar</button>
+</div>
+
+
+<div *ngIf="data.tipo == 'delete'" mat-dialog-actions>
+    <button *ngIf="data.tipo == 'delete'" mat-button [mat-dialog-close]="false">Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+</div>

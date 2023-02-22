@@ -1,0 +1,34 @@
+.cardVacantes{
+    width: fit-content;
+    margin: auto;
+    background: white
+}
+
+.hrAdd{
+    width: 90%; 
+    height: 2px; 
+    border: none; 
+    border-radius: 1px;
+    background-color: rgb(157, 66, 124);
+}
+
+.tableVacantes{
+    width: fit-content;
+    background: whitesmoke;
+    color: dimgrey !important;
+}
+
+th{
+    color: green;
+    font-weight: bold;
+    padding: 1rem !important;
+}
+
+td{
+    color: dimgray;
+    padding: 1rem !important;
+}
+
+.button{
+    border: none;
+}
